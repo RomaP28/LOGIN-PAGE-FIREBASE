@@ -13,12 +13,12 @@ const Root: React.FC = () => {
     // hasEmitted,
     firstValuePromise,
   } = useUser();
-  const [isUserLoaded, setIsUserLoaded] = useState(false);
+  const [isUserLoaded, setIsUserLoaded] = useState(true);
   const isLogged = !!user;
+
   useEffect(() => {
     firstValuePromise.then(() => setIsUserLoaded(true));
   }, [firstValuePromise, setIsUserLoaded]);
-
   // doesn't always work, but suddenly works when subscribing to `firstValuePromise`
   // thus we use `isUserLoaded` below
   // if (!hasEmitted) {
@@ -27,7 +27,6 @@ const Root: React.FC = () => {
   if (!isUserLoaded) {
     return null;
   }
-
   if (isLogged) {
     return (
       <AuthenticatedLayout>
@@ -43,6 +42,7 @@ const Root: React.FC = () => {
   return (
     <GuestLayout>
       <Switch>
+        <Route exact path="/" component={() => <Redirect to="/login" />} />
         <Route exact path="/login" component={SignInScreen} />
         <Route path="*" component={NotFoundScreen} />
       </Switch>

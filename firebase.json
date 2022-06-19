@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "test-project-20210119",
+    "site": "login-logout-4daa5",
     "public": "build",
     "ignore": [
       "firebase.json",

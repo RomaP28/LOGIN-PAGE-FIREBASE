@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "test-project-20210119"
-  }
+    "default": "login-logout-app",
+    "staging": "login-logout-4daa5"
+  },
+  "targets": {}
 }
